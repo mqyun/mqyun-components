@@ -1,0 +1,61 @@
+@import '../assets/pub.styl'
+
+// toast 宽高
+toastWidth = 270px
+toastHeight = 45px
+
+// toast 与 浏览器之间的间隔
+intervalLength = 8px
+
+.mqyun-toast-box
+  position fixed
+  box-sizing border-box
+  padding 0 20px
+  width toastWidth
+  height toastHeight
+  border 1px solid #ccc
+  border-radius 5px
+  box-shadow 0 2px 4px rgba(0, 0, 0, .24)
+  color #fff
+  line-height toastHeight
+  text-align center
+  textOverflow()
+  &.top
+    left 50%
+    transform translate(-50%)
+    animation toastShow 1s
+  &.bottom
+    bottom intervalLength
+    left 50%
+    transform translate(-50%)
+    animation toastShow 1s
+  &.left
+    left intervalLength
+    top 50%
+    transform translate(0, -50%)
+    animation toastShow 1s
+  &.right
+    right intervalLength
+    top 50%
+    transform translate(0, -50%)
+    animation toastShow 1s
+  &.primary
+    background-color primaryColor
+  &.info
+    background-color infoColor
+  &.danger
+    background-color dangerColor
+  &.success
+    background-color successColor
+  &.warning
+    background-color warningColor
+  &.default
+    background-color defaultColor
+
+@keyframes toastShow
+  from {
+    opacity 0
+  }
+  to {
+    opacity 1
+  }
